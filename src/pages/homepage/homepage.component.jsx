@@ -1,17 +1,9 @@
 import React from "react";
 
-import { HomePageContainer, ImageContainer } from "./homepage.styles";
-import backgroundImage from "../../assets/pexels-jessica-lewis-583846.jpg";
+import SubHeading from "../../components/subheading/subheading.component";
 
 const HomePage = () => {
-  return (
-    <div>
-      <ImageContainer>
-        <img src={backgroundImage} alt="" />
-      </ImageContainer>
-      <HomePageContainer></HomePageContainer>
-    </div>
-  );
+  return <SubHeading></SubHeading>;
 };
 
 export default HomePage;
