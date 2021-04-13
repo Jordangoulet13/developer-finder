@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { ReactComponent as Logo } from "../../assets/team-leader.svg";
 
 import {
   HeaderContainer,
@@ -11,11 +11,9 @@ import {
 
 const Header = () => (
   <HeaderContainer>
-    <LogoContainer to="/">
-      <Logo className="logo" />
-    </LogoContainer>
+    <LogoContainer to="/"></LogoContainer>
     <OptionsContainer>
-      <OptionLink to="/">LOGIN</OptionLink>
+      <OptionLink to="/signin">LOGIN</OptionLink>
       <OptionLink to="/">CONTACT</OptionLink>
     </OptionsContainer>
   </HeaderContainer>

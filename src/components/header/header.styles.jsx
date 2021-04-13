@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/team-leader.svg";
 
 export const HeaderContainer = styled.div`
   height: 70px;
@@ -10,9 +11,11 @@ export const HeaderContainer = styled.div`
 `;
 
 export const LogoContainer = styled(Link)`
-  height: 100%;
+  height: auto;
   width: 70px;
   padding: 25px;
+  background-image: url(${Logo});
+  background-size: cover;
 `;
 
 export const OptionsContainer = styled.div`

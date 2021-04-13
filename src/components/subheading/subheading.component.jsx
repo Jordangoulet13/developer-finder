@@ -1,13 +1,8 @@
 import React from "react";
-import { SubHeadingContainer, BackgroundImage } from "./subheading.styles";
-import backgroundImg from "../../assets/pexels-jessica-lewis-583846.jpg";
+import { SubHeadingContainer } from "./subheading.styles";
 
 const SubHeading = () => {
-  return (
-    <SubHeadingContainer>
-      <BackgroundImage src={backgroundImg} />
-    </SubHeadingContainer>
-  );
+  return <SubHeadingContainer></SubHeadingContainer>;
 };
 
 export default SubHeading;
