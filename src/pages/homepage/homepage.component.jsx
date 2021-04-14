@@ -1,9 +1,9 @@
 import React from "react";
 
-import SubHeading from "../../components/subheading/subheading.component";
+import LandingPageHeader from "../../components/landingPageHeader/landingPageHeader.component";
 
 const HomePage = () => {
-  return <SubHeading></SubHeading>;
+  return <LandingPageHeader></LandingPageHeader>;
 };
 
 export default HomePage;

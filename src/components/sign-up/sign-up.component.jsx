@@ -5,7 +5,7 @@ import CustomButton from "../custom-button/custom-button.component";
 
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
-import { SignUpContainer, SignUpTitle, RadioInfo } from "./sign-up.styles";
+import { SignUpContainer, SignUpTitle } from "./sign-up.styles";
 
 class SignUp extends React.Component {
   constructor() {
@@ -50,6 +50,7 @@ class SignUp extends React.Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(event.target);
 
     this.setState({ [name]: value });
   };
@@ -61,13 +62,6 @@ class SignUp extends React.Component {
         <SignUpTitle>I do not have a account</SignUpTitle>
         <span>Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
-          <div>
-            <input type="radio" name="Employer" value="employer" />
-            <span>Hire</span>
-            <input type="radio" name="Employee" value="employee" />
-            <span>Looking</span>
-          </div>
-
           <FormInput
             type="text"
             name="displayName"
