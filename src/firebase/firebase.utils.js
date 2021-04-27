@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyB2OOPaDdgIyChz3ut2_fHeNSbpOuCm3Rg",
   authDomain: "dev-finder-881c2.firebaseapp.com",
   projectId: "dev-finder-881c2",
@@ -36,11 +36,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   return userRef;
 };
+
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
 ) => {
-  console.log(objectsToAdd);
   const collectionRef = firestore.collection(collectionKey);
 
   const batch = firestore.batch();
@@ -52,7 +52,25 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
-firebase.initializeApp(firebaseConfig);
+export const convertCollectionsSnapShotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
+};
+
+firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

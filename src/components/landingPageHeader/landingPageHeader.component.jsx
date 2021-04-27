@@ -1,16 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+
 import { LandingHeadingContainer } from "./landingPageHeader.styles";
 
 import InfoText from "../../components/infoText/infoText.component";
-import InfoSubText from "../../components/infoSubText/infoSubText.component";
 
-const SubHeading = () => {
+const LandingPageHeader = ({ currentUser }) => {
   return (
     <LandingHeadingContainer>
       <InfoText>Developer Finder</InfoText>
-      <InfoSubText>Jordan</InfoSubText>
+      <InfoText>Welcome</InfoText>
+      <InfoText>
+        {currentUser ? currentUser.displayName : `Welcome Guest`}
+      </InfoText>
     </LandingHeadingContainer>
   );
 };
 
-export default SubHeading;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
+export default connect(mapStateToProps)(LandingPageHeader);

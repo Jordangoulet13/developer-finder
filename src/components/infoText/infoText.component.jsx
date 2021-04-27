@@ -1,8 +1,12 @@
 import React from "react";
-import { InfoHeading } from "./infoText.styles";
+import { InfoContainer, InfoHeading } from "./infoText.styles";
 
 const InfoText = ({ children, ...props }) => {
-  return <InfoHeading {...props}>{children}</InfoHeading>;
+  return (
+    <InfoContainer>
+      <InfoHeading {...props}>{children}</InfoHeading>
+    </InfoContainer>
+  );
 };
 
 export default InfoText;
