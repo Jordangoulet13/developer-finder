@@ -3,18 +3,31 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
-import { LandingHeadingContainer } from "./landingPageHeader.styles";
+import {
+  InfoContainer,
+  InfoHeading,
+  LandingHeadingContainer,
+  CategoryBanner,
+  InfoSub,
+} from "./landingPageHeader.styles";
 
-import InfoText from "../../components/infoText/infoText.component";
+import CustomButton from "../custom-button/custom-button.component";
+
+//Welcome {currentUser ? currentUser.displayName : `Guest`}
 
 const LandingPageHeader = ({ currentUser }) => {
   return (
     <LandingHeadingContainer>
-      <InfoText>Developer Finder</InfoText>
-      <InfoText>Welcome</InfoText>
-      <InfoText>
-        {currentUser ? currentUser.displayName : `Welcome Guest`}
-      </InfoText>
+      <CategoryBanner></CategoryBanner>
+      <InfoContainer>
+        <InfoHeading>Developer Finder</InfoHeading>
+        <InfoSub>
+          Find quality freelancers and agencies for web development
+        </InfoSub>
+        <CustomButton inverted isGetStarted>
+          Start Here
+        </CustomButton>
+      </InfoContainer>
     </LandingHeadingContainer>
   );
 };

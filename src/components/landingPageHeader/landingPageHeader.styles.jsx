@@ -1,5 +1,46 @@
-import styled from "styled-components";
-import backgroundImg from "../../assets/vancouver-software-development-apps.jpg";
+import styled, { keyframes } from "styled-components";
+import backgroundImg from "../../assets/landing-header.jpg";
+import personImg from "../../assets/MrCutout.com - man-with-a-computer-walking-0003-medium.png";
+
+const moveInLeft = keyframes`    0% {
+  opacity: 0;
+  transform: translate(-10rem);
+}
+
+80% {
+  transform: translate(1rem);
+}
+
+100% {
+  opacity: 1;
+  transform: translate(0);
+}`;
+
+const moveInRight = keyframes`     0% {
+opacity: 0;
+transform: translate(10rem);
+}
+
+80% {
+transform: translate(-1rem);
+}
+
+100% {
+opacity: 1;
+transform: translate(0);
+}`;
+
+const moveInTop = keyframes`     0% {
+  opacity: 0;
+  transform: translate(0, -10rem);
+  }
+  
+  
+  100% {
+  opacity: 1;
+  transform: translate(0, 0);
+  }`;
+
 export const LandingHeadingContainer = styled.div`
   height: 95vh;
   background-image: linear-gradient(
@@ -12,8 +53,45 @@ export const LandingHeadingContainer = styled.div`
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  animation: ${moveInLeft} 1s ease-out;
+  padding-top: 10%;
+  align-items: center;
+`;
+
+export const InfoHeading = styled.h1`
+  display: block;
+  font-size: 4rem;
+  font-weight: 400;
+  position: relative;
+  translate: -20px;
+  color: white;
+`;
+export const InfoSub = styled.p`
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+  position: relative;
+  color: white;
+  font-family: "Noto Sans JP";
+`;
+
+export const CategoryBanner = styled.p`
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  animation: ${moveInTop} 1s ease-out;
+  text-align: center;
+  position: relative;
+  top: 0px;
+  background-color: white;
+  font-family: "Noto Sans JP";
 `;
