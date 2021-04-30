@@ -24,7 +24,7 @@ const LandingPageHeader = ({ currentUser }) => {
         <InfoSub>
           Find quality freelancers and agencies for web development
         </InfoSub>
-        <CustomButton inverted isGetStarted>
+        <CustomButton inverted isRounded>
           Start Here
         </CustomButton>
       </InfoContainer>

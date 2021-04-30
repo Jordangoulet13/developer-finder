@@ -70,6 +70,28 @@ export const convertCollectionsSnapShotToMap = (collections) => {
   }, {});
 };
 
+export const writeUserData = (
+  userAuth,
+  firstName,
+  lastName,
+  location,
+  title,
+  about,
+  skills,
+  portfolioLink
+) => {
+  const userRef = firestore.doc(`users/${userAuth}`);
+  userRef.update({
+    firstName: firstName,
+    lastName: lastName,
+    location: location,
+    title: title,
+    about: about,
+    skills: skills,
+    portfolioLink: portfolioLink,
+  });
+};
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();

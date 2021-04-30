@@ -71,7 +71,6 @@ export const InfoHeading = styled.h1`
   font-size: 4rem;
   font-weight: 400;
   position: relative;
-  translate: -20px;
   color: white;
 `;
 export const InfoSub = styled.p`
