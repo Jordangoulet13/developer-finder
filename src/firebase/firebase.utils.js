@@ -52,24 +52,6 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
-export const convertCollectionsSnapShotToMap = (collections) => {
-  const transformedCollection = collections.docs.map((doc) => {
-    const { title, items } = doc.data();
-
-    return {
-      routeName: encodeURI(title.toLowerCase()),
-      id: doc.id,
-      title,
-      items,
-    };
-  });
-
-  return transformedCollection.reduce((accumulator, collection) => {
-    accumulator[collection.title.toLowerCase()] = collection;
-    return accumulator;
-  }, {});
-};
-
 export const writeUserData = (
   userAuth,
   firstName,
@@ -92,8 +74,34 @@ export const writeUserData = (
   });
 };
 
-firebase.initializeApp(config);
+export const writeUserImage = (userAuth, image) => {
+  const userRef = firestore.doc(`users/${userAuth}`);
+  userRef.update({
+    image: image,
+  });
+  console.log(image);
+};
 
+export const getUserSnapshot = (userID) => {
+  const userRef = firestore.collection("users").doc(userID);
+  const snapShot = userRef
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+        return doc.data();
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+    });
+  return snapShot;
+};
+
+firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

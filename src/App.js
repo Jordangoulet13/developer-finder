@@ -13,19 +13,6 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up
 import ManageProfile from "./pages/manageProfile/manageProfile.component";
 import "./App.css";
 
-// const App = () => {
-//   return (
-//     <div>
-//       <Header />
-//       <Switch>
-//         <Route exact path="/" component={HomePage} />
-//         <Route exact path="/signin" component={SignInAndSignUpPage} />
-//       </Switch>
-//     </div>
-//   );
-// };
-// export default App;
-
 class App extends React.Component {
   unsubscribeFromAuth = null;
 

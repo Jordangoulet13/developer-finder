@@ -11,9 +11,8 @@ import { writeUserData } from "../../firebase/firebase.utils";
 import { ProfileContainer, ProfileTitle } from "./profile-details.styles";
 
 class ProfileDetails extends React.Component {
-  constructor(currentUser) {
+  constructor() {
     super();
-
     this.state = {
       firstName: "",
       lastName: "",
@@ -22,8 +21,18 @@ class ProfileDetails extends React.Component {
       about: "",
       skills: "",
       portfolioLink: "",
-      currentUser: currentUser,
     };
+  }
+  componentDidMount() {
+    this.setState({
+      firstName: this.props.currentUser.firstName,
+      lastName: this.props.currentUser.lastName,
+      location: this.props.currentUser.location,
+      title: this.props.currentUser.title,
+      about: this.props.currentUser.about,
+      skills: this.props.currentUser.skills,
+      portfolioLink: this.props.currentUser.portfolioLink,
+    });
   }
 
   handleSubmit = async (event) => {
@@ -37,12 +46,11 @@ class ProfileDetails extends React.Component {
       about,
       skills,
       portfolioLink,
-      currentUser,
     } = this.state;
 
     try {
       writeUserData(
-        currentUser.currentUser.uid,
+        this.props.currentUser.id,
         firstName,
         lastName,
         location,
@@ -51,6 +59,7 @@ class ProfileDetails extends React.Component {
         skills,
         portfolioLink
       );
+      alert("Infomation Successfully Updated.");
     } catch (error) {
       console.error(error);
     }
@@ -71,12 +80,11 @@ class ProfileDetails extends React.Component {
       about,
       skills,
       portfolioLink,
-      currentUser,
     } = this.state;
 
-    console.log(currentUser.currentUser);
     return (
       <ProfileContainer>
+        {console.log(">>>", this.props.currentUser)}
         <ProfileTitle>Profile Details</ProfileTitle>
         <span>Enter your infomation below</span>
         <form className="profile-form" onSubmit={this.handleSubmit}>
@@ -88,6 +96,7 @@ class ProfileDetails extends React.Component {
             label="First Name"
             required
           />
+
           <FormInput
             type="text"
             name="lastName"
@@ -129,7 +138,7 @@ class ProfileDetails extends React.Component {
             name="portfolioLink"
             value={portfolioLink}
             onChange={this.handleChange}
-            label="PortfolioLink"
+            label="Portfollio Link"
           />
           <CustomButton type="submit">Update Infomation</CustomButton>
         </form>
