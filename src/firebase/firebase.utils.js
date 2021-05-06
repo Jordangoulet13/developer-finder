@@ -76,11 +76,12 @@ export const writeUserData = (
 };
 
 export const writeUserImage = (userAuth, image) => {
-  const userRef = firestore.doc(`users/${userAuth}`);
-  userRef.update({
-    image: image,
-  });
-  console.log(image);
+  if (userAuth) {
+    const userRef = firestore.doc(`users/${userAuth}`);
+    userRef.update({
+      image: image,
+    });
+  }
 };
 
 export const getUserSnapshot = (userID) => {

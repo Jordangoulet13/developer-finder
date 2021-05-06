@@ -43,26 +43,7 @@ class ImageInput extends React.Component {
           });
       }
     );
-    // writeUserImage(this.props.currentUser.id, reader.readAsDataURL(image));
   };
-
-  // handleUpload = () => {
-  //   const { imagePreviewUrl } = this.state;
-  //   const uploadTask = storage
-  //     .ref(`images/${imagePreviewUrl.name}`)
-  //     .put(imagePreviewUrl);
-  //   uploadTask.on(() => {
-  //     storage
-  //       .ref("images")
-  //       .child(imagePreviewUrl.name)
-  //       .getDownloadURL()
-  //       .then((url) => {
-  //         this.setState({ imagePreviewUrl: url });
-  //       });
-  //   });
-
-  //   console.log("image: ", imagePreviewUrl);
-  // };
 
   handleChange(e) {
     e.preventDefault();
@@ -80,32 +61,13 @@ class ImageInput extends React.Component {
     reader.readAsDataURL(file);
   }
 
-  // handleChange = (e) => {
-  //   if (e.target.files[0]) {
-  //     this.setState({ image: e.target.files[0] });
-  //   }
-  // };
-
-  // handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   const { file } = this.state;
-  //   try {
-  //     console.log(file);
-  //     writeUserImage(this.props.currentUser.id, file);
-  //     alert("Infomation Successfully Updated.");
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   componentDidMount() {
     this.setState({ imageUrl: this.props.currentUser.image });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevState) {
     if (prevState.imageUrl !== this.state.imageUrl) {
       writeUserImage(this.props.currentUser.id, this.state.imageUrl);
-      //console.log(this.state.imageUrl)
     }
   }
   render() {
