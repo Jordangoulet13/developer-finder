@@ -74,14 +74,15 @@ export const InfoHeading = styled.h1`
   position: relative;
   color: white;
 `;
-export const InfoSub = styled.p`
+export const InfoSub = styled.h2`
   display: block;
   font-size: 1.5rem;
   font-weight: 300;
   text-align: center;
   position: relative;
   color: white;
-  font-family: "Noto Sans JP";
+  position: relative;
+  top: -50px;
 `;
 
 export const CategoryBanner = styled.p`

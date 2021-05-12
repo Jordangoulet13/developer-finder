@@ -62,7 +62,9 @@ export const writeUserData = (
   title,
   about,
   skills,
-  portfolioLink
+  portfolioLink,
+  githubLink,
+  linkedinLink
 ) => {
   const userRef = firestore.doc(`users/${userAuth}`);
   userRef.update({
@@ -73,6 +75,8 @@ export const writeUserData = (
     about: about,
     skills: skills,
     portfolioLink: portfolioLink,
+    githubLink: githubLink,
+    linkedinLink: linkedinLink,
   });
 };
 

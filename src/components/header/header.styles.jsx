@@ -10,12 +10,19 @@ export const HeaderContainer = styled.div`
   margin-bottom: 25px;
 `;
 
+export const LogoImage = styled.div`
+  background-image: url(${Logo});
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+`;
+
 export const LogoContainer = styled(Link)`
   height: auto;
   width: 180px;
   padding: 25px;
-  background-image: url(${Logo});
-  background-size: cover;
+  display: flex;
+  align-items: center;
 `;
 
 export const OptionsContainer = styled.div`

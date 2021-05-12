@@ -1,15 +1,34 @@
-import styled, { css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import CustomButton from "../custom-button/custom-button.component";
 
+const pulsate = keyframes`
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }`;
+
 export const UserCardContainer = styled.div`
-  width: 33%;
+  width: 50%;
   display: flex;
-  height: 250px;
-  align-items: center;
+  height: 225px;
+  align-items: flex-start;
   position: relative;
   border: 1px solid black;
+  border-radius: 5px;
   margin-bottom: 25px;
   box-sizing: border-box;
+  &:hover {
+    animation: ${pulsate} 1s infinite;
+    opacity: 0.8;
+  }
 `;
 
 export const PorfileImage = styled.div`
@@ -26,6 +45,9 @@ export const ProfileImageContainer = styled.div`
   width: 40%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 60%;
+  margin: 15px;
 `;
 
 export const InfoContainer = styled.div`
@@ -58,13 +80,16 @@ export const DetailsContainer = styled.div`
   justify-content: flex-start;
   width: auto;
   margin-left: 20px;
-  max-height: 50px;
 `;
 
-export const Details = styled.span`
-  width: 100%;
-  padding: 5px;
-  font-size: 12px;
+export const Details = styled.div`
+  display: inline-block;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding: 4px;
+  font-size: 10px;
+  overflow: hidden;
 `;
 
 export const DetailsHeadingContainer = styled.div`

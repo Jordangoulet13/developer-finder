@@ -21,6 +21,8 @@ class ProfileDetails extends React.Component {
       about: "",
       skills: "",
       portfolioLink: "",
+      githubLink: "",
+      linkedinLink: "",
     };
   }
   componentDidMount() {
@@ -32,6 +34,8 @@ class ProfileDetails extends React.Component {
       about: this.props.currentUser.about,
       skills: this.props.currentUser.skills,
       portfolioLink: this.props.currentUser.portfolioLink,
+      githubLink: this.props.currentUser.githubLink,
+      linkedinLink: this.props.currentUser.linkedinLink,
     });
   }
 
@@ -46,6 +50,8 @@ class ProfileDetails extends React.Component {
       about,
       skills,
       portfolioLink,
+      githubLink,
+      linkedinLink,
     } = this.state;
 
     try {
@@ -57,7 +63,9 @@ class ProfileDetails extends React.Component {
         title,
         about,
         skills,
-        portfolioLink
+        portfolioLink,
+        githubLink,
+        linkedinLink
       );
       alert("Infomation Successfully Updated.");
     } catch (error) {
@@ -69,6 +77,7 @@ class ProfileDetails extends React.Component {
     const { name, value } = event.target;
 
     this.setState({ [name]: value });
+    console.log(event);
   };
 
   render() {
@@ -80,6 +89,8 @@ class ProfileDetails extends React.Component {
       about,
       skills,
       portfolioLink,
+      githubLink,
+      linkedinLink,
     } = this.state;
 
     return (
@@ -140,7 +151,21 @@ class ProfileDetails extends React.Component {
             onChange={this.handleChange}
             label="Portfollio Link"
           />
-          <CustomButton type="submit">Update Infomation</CustomButton>
+          <FormInput
+            type="text"
+            name="githubLink"
+            value={githubLink}
+            onChange={this.handleChange}
+            label="Github Link"
+          />
+          <FormInput
+            type="text"
+            name="linkedinLink"
+            value={linkedinLink}
+            onChange={this.handleChange}
+            label="Linkedin Link"
+          />
+          <CustomButton type="submit">Update</CustomButton>
         </form>
       </ProfileContainer>
     );

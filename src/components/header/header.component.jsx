@@ -11,11 +11,14 @@ import {
   LogoContainer,
   OptionsContainer,
   OptionLink,
+  LogoImage,
 } from "./header.styles";
 
 const Header = ({ currentUser }) => (
   <HeaderContainer>
-    <LogoContainer to="/"></LogoContainer>
+    <LogoContainer to="/">
+      <h1>DevFinder.</h1>
+    </LogoContainer>
     <OptionsContainer>
       {currentUser ? (
         <>

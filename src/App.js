@@ -33,6 +33,8 @@ class App extends React.Component {
             about: "",
             skills: "",
             portfolioLink: "",
+            githubLink: "",
+            linkedinLink: "",
             image: "",
             ...snapShot.data(),
           });
