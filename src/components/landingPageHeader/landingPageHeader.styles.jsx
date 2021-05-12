@@ -55,6 +55,7 @@ export const LandingHeadingContainer = styled.div`
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 `;
 
 export const InfoContainer = styled.div`

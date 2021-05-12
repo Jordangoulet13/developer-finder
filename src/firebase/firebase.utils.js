@@ -23,6 +23,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
+
     try {
       await userRef.set({
         displayName,
@@ -101,6 +102,38 @@ export const getUserSnapshot = (userID) => {
       console.log("Error getting document:", error);
     });
   return snapShot;
+};
+
+export const getUsersCollection = () => {
+  const users = [];
+  firestore
+    .collection("users")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        users.push(doc.data());
+      });
+    });
+  return users;
+};
+
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { email, ...data } = doc.data();
+
+    return {
+      routeName: encodeURI(email.toLowerCase()),
+      id: doc.id,
+      email,
+      ...data,
+    };
+  });
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.email.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
 };
 
 firebase.initializeApp(config);
