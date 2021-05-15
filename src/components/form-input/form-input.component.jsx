@@ -4,11 +4,16 @@ import {
   GroupContainer,
   FormInputContainer,
   FormInputLabel,
+  FormInputTextArea,
 } from "./form-input.styles";
 
-const FormInput = ({ handleChange, label, ...props }) => (
+const FormInput = ({ handleChange, label, textArea, ...props }) => (
   <GroupContainer>
-    <FormInputContainer onChange={handleChange} {...props} />
+    {textArea ? (
+      <FormInputTextArea onChange={handleChange} {...props} />
+    ) : (
+      <FormInputContainer onChange={handleChange} {...props} />
+    )}
     {label ? (
       <FormInputLabel className={props.value ? "shrink" : ""}>
         {label}

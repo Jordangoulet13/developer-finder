@@ -8,13 +8,13 @@ import { selectCollectionsForPreview } from "../../redux/usersCollection/userCol
 import {
   CollectionsOverviewContainer,
   CollectionsOverviewHeading,
-  CollectionsOverviewUsers,
+  UsersCollections,
 } from "./users-collections-overview.styles";
 
-const CollectionsOverview = ({ collections }) => (
+const UserCollectionsOverview = ({ collections }) => (
   <CollectionsOverviewContainer>
     <CollectionsOverviewHeading>Find Your Next Dev.</CollectionsOverviewHeading>
-    <CollectionsOverviewUsers>
+    <UsersCollections>
       {console.log(collections)}
       {collections.map(({ email, image, ...otherCollectionProps }) =>
         image ? (
@@ -26,7 +26,7 @@ const CollectionsOverview = ({ collections }) => (
           />
         ) : null
       )}
-    </CollectionsOverviewUsers>
+    </UsersCollections>
   </CollectionsOverviewContainer>
 );
 
@@ -34,4 +34,4 @@ const mapStateToProps = createStructuredSelector({
   collections: selectCollectionsForPreview,
 });
 
-export default connect(mapStateToProps)(CollectionsOverview);
+export default connect(mapStateToProps)(UserCollectionsOverview);

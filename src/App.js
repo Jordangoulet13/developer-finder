@@ -11,6 +11,7 @@ import HomePage from "./pages/homepage/homepage.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import ManageProfile from "./pages/manageProfile/manageProfile.component";
+import ImagePlaceholder from "./assets/user.svg";
 import "./App.css";
 
 class App extends React.Component {
@@ -35,7 +36,7 @@ class App extends React.Component {
             portfolioLink: "",
             githubLink: "",
             linkedinLink: "",
-            image: "",
+            image: ImagePlaceholder,
             ...snapShot.data(),
           });
         });

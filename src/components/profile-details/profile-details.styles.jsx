@@ -28,3 +28,8 @@ export const ImageHeadingContainer = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+
+export const FormContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;

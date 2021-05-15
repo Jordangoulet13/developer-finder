@@ -12,7 +12,7 @@ export const CollectionsOverviewHeading = styled.h1`
   margin-right: 50px;
 `;
 
-export const CollectionsOverviewUsers = styled.div`
+export const UsersCollections = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

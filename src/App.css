@@ -6,6 +6,9 @@ button {
   font-family: "Dela Gothic One", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
 }
+textarea {
+  font-family: "Dela Gothic One";
+}
 
 a {
   text-decoration: none;

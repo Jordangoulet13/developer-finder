@@ -2,7 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { ProfileImage } from "./ImageInput.styles";
+import {
+  ProfileImage,
+  ProgressBar,
+  UploadbButton,
+  UploadImageInput,
+  GroupContainerHeader,
+} from "./ImageInput.styles";
 import { writeUserImage } from "../../firebase/firebase.utils";
 import placeholderImg from "../../assets/user.svg";
 import CustomButton from "../custom-button/custom-button.component";
@@ -18,9 +24,9 @@ class ImageInput extends React.Component {
       imageUrl: null,
     };
   }
-  handleUpload = (e) => {
-    e.preventDefault();
-    const { image } = this.state;
+
+  handleUpload = () => {
+    const { image, imageUrl } = this.state;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
@@ -43,8 +49,8 @@ class ImageInput extends React.Component {
           });
       }
     );
+    writeUserImage(this.props.currentUser.id, imageUrl);
   };
-
   handleChange(e) {
     e.preventDefault();
 
@@ -52,11 +58,16 @@ class ImageInput extends React.Component {
     let file = e.target.files[0];
 
     reader.onloadend = () => {
-      this.setState({
-        file: reader.result,
-        image: file,
-        imageUrl: reader.result,
-      });
+      this.setState(
+        {
+          file: reader.result,
+          image: file,
+          imageUrl: reader.result,
+        },
+        () => {
+          this.handleUpload();
+        }
+      );
     };
     reader.readAsDataURL(file);
   }
@@ -65,27 +76,21 @@ class ImageInput extends React.Component {
     this.setState({ imageUrl: this.props.currentUser.image });
   }
 
-  componentDidUpdate(prevState) {
-    if (prevState.imageUrl !== this.state.imageUrl) {
-      writeUserImage(this.props.currentUser.id, this.state.imageUrl);
-    }
-  }
   render() {
-    const { image, file, progress, imageUrl } = this.state;
+    const { progress, imageUrl } = this.state;
     // console.log(imageUrl);
     return (
-      <>
-        <ProfileImage src={imageUrl ? imageUrl : placeholderImg}></ProfileImage>
-        <form className="profile-form" onSubmit={this.handleUpload}>
-          <input
+      <GroupContainerHeader>
+        <ProfileImage src={imageUrl ? imageUrl : placeholderImg} />
+        <UploadbButton>
+          <UploadImageInput
             type="file"
             accept="image/*"
             onChange={(e) => this.handleChange(e)}
           />
-          <CustomButton type="submit">Update Pic</CustomButton>
-        </form>
-        <progress value={progress} max="100" />
-      </>
+          Upload A Image
+        </UploadbButton>
+      </GroupContainerHeader>
     );
   }
 }

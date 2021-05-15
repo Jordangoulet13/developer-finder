@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   UserCardContainer,
@@ -12,6 +13,8 @@ import {
   DetailsHeadingContainer,
   DetailsInfoContainer,
   Details,
+  LinksContainer,
+  UserLink,
 } from "./user-card.styles";
 
 // onClick={() => history.push(`${match.path}/${routeName}`)}
@@ -21,19 +24,27 @@ const UserCard = ({ ...otherCollectionProps }) => {
     lastName,
     location,
     image,
-    about,
     skills,
     title,
     portfolioLink,
     email,
+    githubLink,
+    linkedinLink,
   } = otherCollectionProps;
+  console.log(otherCollectionProps);
   return (
     <UserCardContainer>
       <ProfileImageContainer>
         <PorfileImage image={image} />
+        <LinksContainer>
+          {githubLink ? <UserLink github /> : ""}
+          {linkedinLink ? <UserLink /> : ""}
+        </LinksContainer>
       </ProfileImageContainer>
       <InfoContainer>
-        <Name>{`${firstName.toUpperCase()} ${lastName.toUpperCase()}`}</Name>
+        <Name>{`${firstName ? firstName.toUpperCase() : "N/A"} ${
+          lastName ? lastName.toUpperCase() : "N/A"
+        }`}</Name>
         <Title>{title}</Title>
         <LineBreak />
         <DetailsContainer>

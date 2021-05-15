@@ -8,7 +8,7 @@ import UsersCollectionsOverviewContainer from "../users-collections-overview/use
 import UsersCollectionContainer from "../users-collections-overview/users-collections-overview.container";
 import UsersCollectionsOverviewComponent from "../users-collections-overview/users-collections-overview.component";
 
-class ShopPage extends React.Component {
+class UsersOverview extends React.Component {
   componentDidMount() {
     const { fetchCollectionsStartAsync } = this.props;
 
@@ -18,7 +18,7 @@ class ShopPage extends React.Component {
   render() {
     return (
       <div className="users-overview">
-        <UsersCollectionsOverviewComponent />
+        <UsersCollectionContainer />
       </div>
     );
   }
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
 });
 
-export default connect(null, mapDispatchToProps)(ShopPage);
+export default connect(null, mapDispatchToProps)(UsersOverview);
