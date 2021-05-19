@@ -88,7 +88,7 @@ class ImageInput extends React.Component {
             accept="image/*"
             onChange={(e) => this.handleChange(e)}
           />
-          Upload A Image
+          Upload An Image
         </UploadbButton>
       </GroupContainerHeader>
     );

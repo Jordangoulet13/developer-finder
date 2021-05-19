@@ -11,11 +11,11 @@ const shrinkLabelStyles = css`
 
 export const GroupContainer = styled.div`
   position: relative;
-  margin: 30px 0;
+  margin: 30px 0px;
   input[type="password"] {
     letter-spacing: 0.3em;
   }
-  width: 50%;
+  ${(props) => (props.isProfile ? "width: 45%; margin: 30px 10px;" : null)}
 `;
 
 export const FormInputContainer = styled.input`
@@ -23,9 +23,10 @@ export const FormInputContainer = styled.input`
   background-color: white;
   color: ${subColor};
   font-size: 18px;
+  ${(props) => (props.isProfile ? null : "padding: 10px 10px 10px 5px")}
   display: block;
-  width: 85%;
   border: none;
+  width: 100%;
   border-radius: 0;
   border-bottom: 1px solid ${subColor};
   margin: 25px 0;

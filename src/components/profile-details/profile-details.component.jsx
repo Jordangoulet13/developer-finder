@@ -106,6 +106,7 @@ class ProfileDetails extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <FormContainer>
             <FormInput
+              isProfile
               type="text"
               name="firstName"
               value={firstName}
@@ -115,6 +116,7 @@ class ProfileDetails extends React.Component {
             />
 
             <FormInput
+              isProfile
               type="text"
               name="lastName"
               value={lastName}
@@ -123,6 +125,7 @@ class ProfileDetails extends React.Component {
               required
             />
             <FormInput
+              isProfile
               type="text"
               name="location"
               value={location}
@@ -130,6 +133,7 @@ class ProfileDetails extends React.Component {
               label="Location"
             />
             <FormInput
+              isProfile
               type="text"
               name="title"
               value={title}
@@ -138,6 +142,7 @@ class ProfileDetails extends React.Component {
             />
 
             <FormInput
+              isProfile
               type="text"
               name="skills"
               value={skills}
@@ -146,6 +151,7 @@ class ProfileDetails extends React.Component {
             />
 
             <FormInput
+              isProfile
               type="text"
               name="portfolioLink"
               value={portfolioLink}
@@ -153,6 +159,7 @@ class ProfileDetails extends React.Component {
               label="Portfollio Link"
             />
             <FormInput
+              isProfile
               type="text"
               name="githubLink"
               value={githubLink}
@@ -160,21 +167,22 @@ class ProfileDetails extends React.Component {
               label="Github Link"
             />
             <FormInput
+              isProfile
               type="text"
               name="linkedinLink"
               value={linkedinLink}
               onChange={this.handleChange}
               label="Linkedin Link"
             />
-            <FormInput
-              type="text"
-              name="about"
-              value={about}
-              onChange={this.handleChange}
-              label="Tell us about yourself"
-              textArea
-            />
           </FormContainer>
+          <FormInput
+            type="text"
+            name="about"
+            value={about}
+            onChange={this.handleChange}
+            label="Tell us about yourself"
+            textArea
+          />
           <CustomButton type="submit">Update</CustomButton>
         </form>
       </ProfileContainer>

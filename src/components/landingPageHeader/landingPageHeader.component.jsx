@@ -9,6 +9,9 @@ import {
   LandingHeadingContainer,
   CategoryBanner,
   InfoSub,
+  CollectionsOverviewHeading,
+  CollectionsOverviewHeadingContainer,
+  Container,
 } from "./landingPageHeader.styles";
 
 import CustomButton from "../custom-button/custom-button.component";
@@ -17,18 +20,25 @@ import CustomButton from "../custom-button/custom-button.component";
 
 const LandingPageHeader = ({ currentUser }) => {
   return (
-    <LandingHeadingContainer>
-      <CategoryBanner></CategoryBanner>
-      <InfoContainer>
-        <InfoHeading>Developer Finder</InfoHeading>
-        <InfoSub>
-          Find quality freelancers and agencies for web development
-        </InfoSub>
-        <CustomButton inverted isRounded>
-          Start Here
-        </CustomButton>
-      </InfoContainer>
-    </LandingHeadingContainer>
+    <Container>
+      <LandingHeadingContainer>
+        <CategoryBanner></CategoryBanner>
+        <InfoContainer>
+          <InfoHeading>Developer Finder</InfoHeading>
+          <InfoSub>
+            Find quality freelancers and agencies for web development
+          </InfoSub>
+          <CustomButton inverted isRounded>
+            Start Here
+          </CustomButton>
+        </InfoContainer>
+      </LandingHeadingContainer>
+      <CollectionsOverviewHeadingContainer>
+        <CollectionsOverviewHeading>
+          Find Your Next Dev.
+        </CollectionsOverviewHeading>
+      </CollectionsOverviewHeadingContainer>
+    </Container>
   );
 };
 

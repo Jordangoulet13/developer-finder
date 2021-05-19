@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import { createStructuredSelector } from "reselect";
 
 import UserCard from "../user-card/user-card.component";
@@ -11,24 +12,28 @@ import {
   UsersCollections,
 } from "./users-collections-overview.styles";
 
-const UserCollectionsOverview = ({ collections }) => (
-  <CollectionsOverviewContainer>
-    <CollectionsOverviewHeading>Find Your Next Dev.</CollectionsOverviewHeading>
-    <UsersCollections>
-      {console.log(collections)}
-      {collections.map(({ email, image, ...otherCollectionProps }) =>
-        image ? (
-          <UserCard
-            key={email}
-            image={image}
-            email={email}
-            {...otherCollectionProps}
-          />
-        ) : null
-      )}
-    </UsersCollections>
-  </CollectionsOverviewContainer>
-);
+const UserCollectionsOverview = ({ collections }) => {
+  return (
+    <CollectionsOverviewContainer>
+      {/* <CollectionsOverviewHeading>
+        Find Your Next Dev.
+      </CollectionsOverviewHeading> */}
+      <UsersCollections>
+        {console.log(collections)}
+        {collections.map(({ email, firstName, ...otherCollectionProps }) =>
+          firstName ? (
+            <UserCard
+              key={email}
+              email={email}
+              firstName={firstName}
+              {...otherCollectionProps}
+            />
+          ) : null
+        )}
+      </UsersCollections>
+    </CollectionsOverviewContainer>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   collections: selectCollectionsForPreview,

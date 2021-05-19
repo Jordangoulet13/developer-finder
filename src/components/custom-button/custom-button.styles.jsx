@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 
 const buttonStyles = css`
-  background-color: black;
+  background-color: rgb(132, 137, 186);
   color: white;
   border: none;
   &:hover {
-    background-color: white;
+    background-color: rgb(65, 72, 169);
     color: black;
     border: 1px solid black;
   }

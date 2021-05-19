@@ -9,6 +9,7 @@ import { selectCurrentUser } from "./redux/user/user.selectors";
 
 import HomePage from "./pages/homepage/homepage.component";
 import Header from "./components/header/header.component";
+import UsersPage from "./pages/userspage/userspage.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import ManageProfile from "./pages/manageProfile/manageProfile.component";
 import ImagePlaceholder from "./assets/user.svg";
@@ -74,6 +75,7 @@ class App extends React.Component {
               this.props.currentUser ? <ManageProfile /> : <HomePage />
             }
           />
+          <Route path="/users" component={UsersPage} />
         </Switch>
       </div>
     );

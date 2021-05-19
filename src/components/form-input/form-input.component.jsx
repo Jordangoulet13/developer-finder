@@ -8,7 +8,7 @@ import {
 } from "./form-input.styles";
 
 const FormInput = ({ handleChange, label, textArea, ...props }) => (
-  <GroupContainer>
+  <GroupContainer {...props}>
     {textArea ? (
       <FormInputTextArea onChange={handleChange} {...props} />
     ) : (

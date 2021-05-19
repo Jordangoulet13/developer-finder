@@ -13,6 +13,9 @@ const config = {
   measurementId: "G-VP62K4FH8K",
 };
 
+const ImagePlaceholder =
+  "https://firebasestorage.googleapis.com/v0/b/dev-finder-881c2.appspot.com/o/images%2F1200px-Breezeicons-actions-22-im-user.svg.png?alt=media&token=ae37850a-0f18-4bb2-b262-3bf555564e59";
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
@@ -23,12 +26,14 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
+    const image = ImagePlaceholder;
 
     try {
       await userRef.set({
         displayName,
         email,
         createdAt,
+        image,
         ...additionalData,
       });
     } catch (error) {
@@ -127,15 +132,15 @@ export const convertCollectionsSnapshotToMap = (collections) => {
     const { email, ...data } = doc.data();
 
     return {
-      routeName: encodeURI(email.toLowerCase()),
-      id: doc.id,
+      routeName: encodeURI(doc.id.toLowerCase()),
+      id: doc.id.toLowerCase(),
       email,
       ...data,
     };
   });
 
   return transformedCollection.reduce((accumulator, collection) => {
-    accumulator[collection.email.toLowerCase()] = collection;
+    accumulator[collection.id.toLowerCase()] = collection;
     return accumulator;
   }, {});
 };

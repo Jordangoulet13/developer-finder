@@ -51,11 +51,10 @@ export const LandingHeadingContainer = styled.div`
     url(${backgroundImg});
   background-size: cover;
   background-position: top;
-  position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const InfoContainer = styled.div`
@@ -95,4 +94,29 @@ export const CategoryBanner = styled.p`
   top: 0px;
   background-color: white;
   font-family: "Noto Sans JP";
+`;
+
+export const CollectionsOverviewHeadingContainer = styled.div`
+  display: flex;
+  width: 100%;
+  border-bottom: 5px solid rgb(132, 137, 186);
+  position: relative;
+  flex-direction: row-reverse;
+  position: absolute;
+  bottom: 0;
+
+  /* top: -93px; */
+`;
+
+export const CollectionsOverviewHeading = styled.h1`
+  display: inline-block;
+  margin-right: 20px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  cursor: default;
 `;

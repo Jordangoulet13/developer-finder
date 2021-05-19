@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import CustomButton from "../custom-button/custom-button.component";
+import { Link } from "react-router-dom";
 import linkedin from "../../assets/linkedin.png";
 import github from "../../assets/Octicons-mark-github.svg";
 
@@ -24,10 +24,10 @@ export const UserCardContainer = styled.div`
   align-items: flex-start;
   position: relative;
   border-radius: 5px;
-  margin-bottom: 25px;
   box-sizing: border-box;
+
   &:hover {
-    animation: ${pulsate} 1s infinite;
+    animation: ${pulsate} 1s;
     opacity: 0.8;
   }
 `;
@@ -40,13 +40,14 @@ export const PorfileImage = styled.div`
   border-radius: 50%;
   height: 120px;
   width: 120px;
+  cursor: pointer;
 `;
 
 export const LinksContainer = styled.div`
   display: flex;
 `;
 
-export const UserLink = styled.div`
+export const UserLink = styled.a`
   background-size: cover;
   background-position: center;
   background-image: ${(p) =>
@@ -55,6 +56,7 @@ export const UserLink = styled.div`
   height: 20px;
   opacity: 0.5;
   margin: 10px;
+  cursor: pointer;
   &:hover {
     opacity: 1;
   }
@@ -77,6 +79,7 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-wrap: nowrap;
+  cursor: pointer;
 `;
 
 export const Name = styled.span`

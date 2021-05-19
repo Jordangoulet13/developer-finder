@@ -2,19 +2,19 @@ import { createSelector } from "reselect";
 
 const selectUsers = (state) => state.usersCollection;
 
-export const selectCollections = createSelector(
+export const selectUserCollections = createSelector(
   [selectUsers],
   (user) => user.collections
 );
 
 export const selectCollectionsForPreview = createSelector(
-  [selectCollections],
+  [selectUserCollections],
   (collections) =>
     collections ? Object.keys(collections).map((key) => collections[key]) : []
 );
 
-export const selectCollection = (collectionUrlParam) =>
-  createSelector([selectCollections], (collections) =>
+export const selectUser = (collectionUrlParam) =>
+  createSelector([selectUserCollections], (collections) =>
     collections ? collections[collectionUrlParam] : null
   );
 

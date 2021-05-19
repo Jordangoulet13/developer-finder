@@ -4,9 +4,8 @@ import { connect } from "react-redux";
 
 import { fetchCollectionsStartAsync } from "../../redux/usersCollection/userCollection.actions";
 
-import UsersCollectionsOverviewContainer from "../users-collections-overview/users-collections-overview.container";
+import UsersPreviewContainer from "../users-preview/users-preview.container";
 import UsersCollectionContainer from "../users-collections-overview/users-collections-overview.container";
-import UsersCollectionsOverviewComponent from "../users-collections-overview/users-collections-overview.component";
 
 class UsersOverview extends React.Component {
   componentDidMount() {
@@ -17,9 +16,13 @@ class UsersOverview extends React.Component {
 
   render() {
     return (
-      <div className="users-overview">
-        <UsersCollectionContainer />
-      </div>
+      <>
+        {this.props.preview ? (
+          <UsersPreviewContainer />
+        ) : (
+          <UsersCollectionContainer />
+        )}
+      </>
     );
   }
 }

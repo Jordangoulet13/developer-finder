@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { useLocation, useHistory, useRouteMatch } from "react-router-dom";
 import {
   UserCardContainer,
   PorfileImage,
@@ -16,10 +15,11 @@ import {
   LinksContainer,
   UserLink,
 } from "./user-card.styles";
-
+//onClick={() => history.push(`${match.url}${linkUrl}`)}
 // onClick={() => history.push(`${match.path}/${routeName}`)}
 const UserCard = ({ ...otherCollectionProps }) => {
   const {
+    id,
     firstName,
     lastName,
     location,
@@ -31,17 +31,31 @@ const UserCard = ({ ...otherCollectionProps }) => {
     githubLink,
     linkedinLink,
   } = otherCollectionProps;
-  console.log(otherCollectionProps);
+  const locationUrl = useLocation();
+  const history = useHistory();
+  const match = useRouteMatch();
+
   return (
     <UserCardContainer>
       <ProfileImageContainer>
-        <PorfileImage image={image} />
+        <PorfileImage
+          image={image}
+          onClick={() => history.push(`/users/${id}`)}
+        />
         <LinksContainer>
-          {githubLink ? <UserLink github /> : ""}
-          {linkedinLink ? <UserLink /> : ""}
+          {githubLink ? (
+            <UserLink github href={`https://${githubLink}`} target="_blank" />
+          ) : (
+            ""
+          )}
+          {linkedinLink ? (
+            <UserLink href={`https://${linkedinLink}`} target="_blank" />
+          ) : (
+            ""
+          )}
         </LinksContainer>
       </ProfileImageContainer>
-      <InfoContainer>
+      <InfoContainer onClick={() => history.push(`/users/${id}`)}>
         <Name>{`${firstName ? firstName.toUpperCase() : "N/A"} ${
           lastName ? lastName.toUpperCase() : "N/A"
         }`}</Name>
