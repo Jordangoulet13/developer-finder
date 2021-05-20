@@ -15,6 +15,6 @@ export const UsersCollections = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 40px 10px;
+  padding: 40px 25px;
   /* border-top: 5px solid rgb(132, 137, 186); */
 `;

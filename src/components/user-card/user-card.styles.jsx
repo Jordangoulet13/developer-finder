@@ -18,7 +18,7 @@ const pulsate = keyframes`
   }`;
 
 export const UserCardContainer = styled.div`
-  width: 50%;
+  width: 45%;
   display: flex;
   height: 225px;
   align-items: flex-start;
@@ -38,8 +38,8 @@ export const PorfileImage = styled.div`
   background-position: center;
   background-image: ${({ image }) => `url(${image})`};
   border-radius: 50%;
-  height: 120px;
-  width: 120px;
+  width: 8vw;
+  height: 8vw;
   cursor: pointer;
 `;
 
@@ -67,7 +67,6 @@ export const ProfileImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70%;
   margin: 15px;
   display: flex;
   flex-direction: column;
