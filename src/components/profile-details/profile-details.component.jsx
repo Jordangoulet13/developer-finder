@@ -130,7 +130,7 @@ class ProfileDetails extends React.Component {
               name="location"
               value={location}
               onChange={this.handleChange}
-              label="Location"
+              label="City"
             />
             <FormInput
               isProfile
@@ -138,7 +138,7 @@ class ProfileDetails extends React.Component {
               name="title"
               value={title}
               onChange={this.handleChange}
-              label="Title i.e Front-end developer"
+              label="Current Role i.e Front-end developer"
             />
 
             <FormInput
