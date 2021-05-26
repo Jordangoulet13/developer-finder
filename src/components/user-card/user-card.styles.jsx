@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { Link } from "react-router-dom";
 import linkedin from "../../assets/linkedin.png";
 import github from "../../assets/Octicons-mark-github.svg";
 

@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import backgroundImg from "../../assets/landing-header.jpg";
-import personImg from "../../assets/MrCutout.com - man-with-a-computer-walking-0003-medium.png";
 
 const moveInLeft = keyframes`    0% {
   opacity: 0;
@@ -14,20 +13,6 @@ const moveInLeft = keyframes`    0% {
 100% {
   opacity: 1;
   transform: translate(0);
-}`;
-
-const moveInRight = keyframes`     0% {
-opacity: 0;
-transform: translate(10rem);
-}
-
-80% {
-transform: translate(-1rem);
-}
-
-100% {
-opacity: 1;
-transform: translate(0);
 }`;
 
 const moveInTop = keyframes`     0% {

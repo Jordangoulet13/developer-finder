@@ -9,9 +9,7 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 import {
   HeaderContainer,
   LogoContainer,
-  OptionsContainer,
   OptionLink,
-  LogoImage,
   MobileMenuIcon,
   Menu,
 } from "./header.styles";

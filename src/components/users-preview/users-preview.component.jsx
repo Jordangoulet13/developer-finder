@@ -10,13 +10,6 @@ import {
   CollectionsOverviewContainer,
   UsersCollections,
 } from "./users-preview.styles.jsx";
-{
-  /* .filter((colletion, idx) => idx < 4). */
-}
-
-const sortTimeAndFilter = (collections) => {
-  collections.map((collection) => collection.createdAt);
-};
 
 const UsersPreview = ({ collections }) => {
   const sortedCollections = collections

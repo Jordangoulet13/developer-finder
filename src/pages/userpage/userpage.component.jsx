@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import { selectUser } from "../../redux/usersCollection/userCollection.selectors";
 import {
@@ -17,29 +17,12 @@ import {
   UserLink,
 } from "./userpage.styles";
 
-/*
-about: ""
-createdAt: t {seconds: 1621307399, nanoseconds: 723000000}
-displayName: "llll"
-email: "lll@gmail.com"
-firstName: "lll"
-githubLink: ""
-id: "j6ez10udnvvs9rg0tahddvad2yk1"
-image: "data:image/jpeg;base64,/9j/4Q9rRXhpZgAATU0AKgAAAA
-lastName: "lll"
-linkedinLink: ""
-location: ""
-portfolioLink: ""
-routeName: "j6ez10udnvvs9rg0tahddvad2yk1"
-skills: ""
-title: "" */
-
 const UserPage = ({ user }) => {
   console.log(user);
   const {
     firstName,
     lastName,
-    createdAt,
+
     email,
     githubLink,
     linkedinLink,
