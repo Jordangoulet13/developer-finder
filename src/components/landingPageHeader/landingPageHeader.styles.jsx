@@ -66,7 +66,7 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   animation: ${moveInLeft} 1s ease-out;
-  padding-top: 10%;
+
   align-items: center;
 `;
 

@@ -28,7 +28,6 @@ export const LogoImage = styled.div`
 export const LogoContainer = styled(Link)`
   height: auto;
   width: 180px;
-  padding: 25px 0;
   display: flex;
   align-items: center;
   @media (max-width: 850px) {
@@ -82,6 +81,7 @@ export const Menu = styled.nav`
   border-bottom: none;
   margin: auto 0 auto auto;
   position: relative;
+  background-color: white;
 
   @media (max-width: 850px) {
     display: ${(p) => (p.open ? "flex" : "none")};

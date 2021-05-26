@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { Link } from "react-router-dom";
 
 import {
   InfoContainer,
@@ -28,9 +29,11 @@ const LandingPageHeader = ({ currentUser }) => {
           <InfoSub>
             Find quality freelancers and agencies for web development
           </InfoSub>
-          <CustomButton inverted isRounded>
-            Start Here
-          </CustomButton>
+          <Link to="/users">
+            <CustomButton inverted isRounded>
+              Start Here
+            </CustomButton>
+          </Link>
         </InfoContainer>
       </LandingHeadingContainer>
       <CollectionsOverviewHeadingContainer>
