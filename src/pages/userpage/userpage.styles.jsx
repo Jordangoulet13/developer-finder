@@ -3,12 +3,18 @@ import styled from "styled-components";
 export const UserContainer = styled.div`
   display: flex;
   margin: 5vh 0;
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
 `;
 
 export const SideBar = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 export const UserInfo = styled.div`
@@ -16,6 +22,9 @@ export const UserInfo = styled.div`
   flex-direction: column;
   width: 100%;
   padding-left: 75px;
+  @media (max-width: 850px) {
+    padding: 0;
+  }
 `;
 
 export const UserImage = styled.div`
@@ -26,6 +35,13 @@ export const UserImage = styled.div`
   border-radius: 50%;
   width: 20vw;
   height: 20vw;
+  @media (max-width: 850px) {
+    display: flex;
+    align-self: center;
+    width: 50vw;
+    height: 50vw;
+    margin-bottom: 50px;
+  }
 `;
 export const Heading = styled.div`
   display: flex;
@@ -36,6 +52,11 @@ export const Heading = styled.div`
 
   ${(p) =>
     p.about ? " width:fit-content;border-bottom: 2px solid black;" : null};
+
+  @media (max-width: 850px) {
+    font-size: 20px;
+    width: 100%;
+  }
 `;
 
 export const HeadingItem = styled.div`
@@ -43,6 +64,9 @@ export const HeadingItem = styled.div`
     p.info
       ? `color:rgb(65, 72, 169); font-size:20px; font-style:italic; `
       : null};
+  @media (max-width: 850px) {
+    font-size: 15px;
+  }
 `;
 
 export const Location = styled.div`
@@ -66,6 +90,9 @@ export const ContentContainer = styled.div`
     p.about
       ? `padding:20px; width:100%; text-indent :5em; background-color:white;`
       : null};
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 export const ContentItem = styled.div`

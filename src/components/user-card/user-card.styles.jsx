@@ -30,6 +30,10 @@ export const UserCardContainer = styled.div`
     animation: ${pulsate} 1s;
     opacity: 0.8;
   }
+
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 export const PorfileImage = styled.div`
@@ -41,6 +45,10 @@ export const PorfileImage = styled.div`
   width: 8vw;
   height: 8vw;
   cursor: pointer;
+  @media (max-width: 800px) {
+    width: 20vw;
+    height: 20vw;
+  }
 `;
 
 export const LinksContainer = styled.div`
@@ -113,6 +121,11 @@ export const Details = styled.div`
   padding: 3px;
   font-size: 10px;
   overflow: hidden;
+
+  @media (max-width: 850px) {
+    font-size: 8px;
+    padding: 3px;
+  }
 `;
 
 export const DetailsHeadingContainer = styled.div`

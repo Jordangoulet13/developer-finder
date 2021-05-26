@@ -13,7 +13,7 @@ import UsersPage from "./pages/userspage/userspage.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import ManageProfile from "./pages/manageProfile/manageProfile.component";
 import ImagePlaceholder from "./assets/user.svg";
-import "./App.css";
+import { GlobalStyle } from "./global.styles";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -54,6 +54,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />

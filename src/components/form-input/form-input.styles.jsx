@@ -16,6 +16,9 @@ export const GroupContainer = styled.div`
     letter-spacing: 0.3em;
   }
   ${(props) => (props.isProfile ? "width: 45%; margin: 30px 10px;" : null)}
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 export const FormInputContainer = styled.input`

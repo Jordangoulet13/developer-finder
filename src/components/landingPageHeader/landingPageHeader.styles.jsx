@@ -55,6 +55,10 @@ export const LandingHeadingContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 850px) {
+    height: 65vh;
+    clip-path: polygon(0 0, 100% 0, 100% 45vh, 0 100%);
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -72,6 +76,13 @@ export const InfoHeading = styled.h1`
   font-weight: 400;
   position: relative;
   color: white;
+  margin-bottom: 100px;
+  @media (max-width: 850px) {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
 `;
 export const InfoSub = styled.h2`
   display: block;
@@ -81,7 +92,11 @@ export const InfoSub = styled.h2`
   position: relative;
   color: white;
   position: relative;
-  top: -50px;
+  @media (max-width: 850px) {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+  }
 `;
 
 export const CategoryBanner = styled.p`
@@ -111,6 +126,9 @@ export const CollectionsOverviewHeadingContainer = styled.div`
 export const CollectionsOverviewHeading = styled.h1`
   display: inline-block;
   margin-right: 20px;
+  @media (max-width: 850px) {
+    font-size: 20px;
+  }
 `;
 
 export const Container = styled.div`

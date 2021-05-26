@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -12,28 +12,38 @@ import {
   OptionsContainer,
   OptionLink,
   LogoImage,
+  MobileMenuIcon,
+  Menu,
 } from "./header.styles";
 
-const Header = ({ currentUser }) => (
-  <HeaderContainer>
-    <LogoContainer to="/">
-      <h1>DevFinder.</h1>
-    </LogoContainer>
-    <OptionsContainer>
-      {currentUser ? (
-        <>
-          <OptionLink as="div" onClick={() => auth.signOut()}>
-            SIGN OUT
-          </OptionLink>
-          <OptionLink to="/manageProfile">MANAGE PROFILE</OptionLink>
-        </>
-      ) : (
-        <OptionLink to="/signin">SIGN IN</OptionLink>
-      )}
-      <OptionLink to="/">CONTACT</OptionLink>
-    </OptionsContainer>
-  </HeaderContainer>
-);
+const Header = ({ currentUser }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
+    <HeaderContainer>
+      <LogoContainer to="/">
+        <h1>DevFinder.</h1>
+      </LogoContainer>
+      <MobileMenuIcon onClick={() => setMenuOpen((s) => !s)}>
+        <div />
+        <div />
+        <div />
+      </MobileMenuIcon>
+      <Menu open={menuOpen}>
+        {currentUser ? (
+          <>
+            <OptionLink as="div" onClick={() => auth.signOut()}>
+              SIGN OUT
+            </OptionLink>
+            <OptionLink to="/manageProfile">MANAGE PROFILE</OptionLink>
+          </>
+        ) : (
+          <OptionLink to="/signin">SIGN IN</OptionLink>
+        )}
+        <OptionLink to="/">CONTACT</OptionLink>
+      </Menu>
+    </HeaderContainer>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
