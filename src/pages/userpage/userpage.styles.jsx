@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import linkedin from "../../assets/linkedin.png";
+import github from "../../assets/Octicons-mark-github.svg";
 
 export const UserContainer = styled.div`
   display: flex;
@@ -11,7 +13,6 @@ export const UserContainer = styled.div`
 export const SideBar = styled.div`
   display: flex;
   flex-direction: column;
-  width: 20%;
   @media (max-width: 850px) {
     width: 100%;
   }
@@ -33,13 +34,13 @@ export const UserImage = styled.div`
   background-position: center;
   background-image: ${({ image }) => `url(${image})`};
   border-radius: 50%;
-  width: 20vw;
-  height: 20vw;
+  width: 15vw;
+  height: 15vw;
   @media (max-width: 850px) {
     display: flex;
     align-self: center;
-    width: 50vw;
-    height: 50vw;
+    width: 40vw;
+    height: 40vw;
     margin-bottom: 50px;
   }
 `;
@@ -99,4 +100,23 @@ export const ContentItem = styled.div`
   font-size: 16px;
   width: 50%;
   ${(p) => (p.about ? `padding:20px; ` : null)};
+`;
+export const LinksContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const UserLink = styled.a`
+  background-size: cover;
+  background-position: center;
+  background-image: ${(p) =>
+    p.github ? `url(${github})` : `url(${linkedin})`};
+  width: 30px;
+  height: 30px;
+  opacity: 0.5;
+  margin: 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
 `;

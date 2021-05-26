@@ -13,6 +13,8 @@ import {
   Location,
   HeadingItem,
   ContentItem,
+  LinksContainer,
+  UserLink,
 } from "./userpage.styles";
 
 /*
@@ -51,6 +53,18 @@ const UserPage = ({ user }) => {
     <UserContainer>
       <SideBar>
         <UserImage image={image} />
+        <LinksContainer>
+          {githubLink ? (
+            <UserLink github href={`https://${githubLink}`} target="_blank" />
+          ) : (
+            ""
+          )}
+          {linkedinLink ? (
+            <UserLink href={`https://${linkedinLink}`} target="_blank" />
+          ) : (
+            ""
+          )}
+        </LinksContainer>
       </SideBar>
       <UserInfo>
         <Heading name>
@@ -66,12 +80,6 @@ const UserPage = ({ user }) => {
         ) : (
           `${firstName} doesn't have any skills to share.`
         )}
-        {/* {skills ? (
-          <>
-            <Heading about>Skills: </Heading>
-            <ContentContainer about>{skills}</ContentContainer>
-          </>
-        ) : null} */}
         {about ? (
           <>
             <Heading about>About: </Heading>
