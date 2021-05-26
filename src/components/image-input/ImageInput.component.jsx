@@ -4,14 +4,12 @@ import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import {
   ProfileImage,
-  ProgressBar,
   UploadbButton,
   UploadImageInput,
   GroupContainerHeader,
 } from "./ImageInput.styles";
 import { writeUserImage } from "../../firebase/firebase.utils";
 import placeholderImg from "../../assets/user.svg";
-import CustomButton from "../custom-button/custom-button.component";
 import { storage } from "../../firebase/firebase.utils";
 
 class ImageInput extends React.Component {
@@ -77,7 +75,7 @@ class ImageInput extends React.Component {
   }
 
   render() {
-    const { progress, imageUrl } = this.state;
+    const { imageUrl } = this.state;
     // console.log(imageUrl);
     return (
       <GroupContainerHeader>
