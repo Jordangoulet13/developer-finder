@@ -51,7 +51,6 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   animation: ${moveInLeft} 1s ease-out;
-
   align-items: center;
 `;
 
@@ -65,8 +64,15 @@ export const InfoHeading = styled.h1`
   @media (max-width: 850px) {
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 3rem;
     margin-bottom: 20px;
+  }
+  @media (max-width: 550px) {
+    font-size: 2rem;
+  }
+  @media (max-width: 350px) {
+    font-size: 1.5rem;
+    margin-bottom: 7rem;
   }
 `;
 export const InfoSub = styled.h2`
@@ -80,7 +86,13 @@ export const InfoSub = styled.h2`
   @media (max-width: 850px) {
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 1rem;
+  }
+  @media (max-width: 550px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 350px) {
+    display: none;
   }
 `;
 
@@ -104,15 +116,19 @@ export const CollectionsOverviewHeadingContainer = styled.div`
   flex-direction: row-reverse;
   position: absolute;
   bottom: 0;
-
-  /* top: -93px; */
 `;
 
 export const CollectionsOverviewHeading = styled.h1`
   display: inline-block;
   margin-right: 20px;
   @media (max-width: 850px) {
-    font-size: 20px;
+    font-size: 1.5rem;
+  }
+  @media (max-width: 550px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 350px) {
+    font-size: 1rem;
   }
 `;
 
