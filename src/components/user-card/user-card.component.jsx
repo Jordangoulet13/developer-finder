@@ -48,7 +48,16 @@ const UserCard = ({ ...otherCollectionProps }) => {
             ""
           )}
           {linkedinLink ? (
-            <UserLink href={`https://${linkedinLink}`} target="_blank" />
+            <UserLink
+              linkedin
+              href={`https://${linkedinLink}`}
+              target="_blank"
+            />
+          ) : (
+            ""
+          )}
+          {portfolioLink ? (
+            <UserLink href={`https://${portfolioLink}`} target="_blank" />
           ) : (
             ""
           )}

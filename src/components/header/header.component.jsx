@@ -37,7 +37,12 @@ const Header = ({ currentUser }) => {
         ) : (
           <OptionLink to="/signin">SIGN IN</OptionLink>
         )}
-        <OptionLink to="/">CONTACT</OptionLink>
+        <OptionLink
+          to="/"
+          onClick={() => window.alert("Contact page coming soon :) ")}
+        >
+          CONTACT
+        </OptionLink>
       </Menu>
     </HeaderContainer>
   );

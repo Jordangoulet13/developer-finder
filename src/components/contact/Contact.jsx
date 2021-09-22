@@ -102,7 +102,6 @@ const Form = styled.form`
 
 const FormInput = styled.input`
   background-color: lightgray;
-  color: ${(p) => p.theme.textPrimaryColor};
   border-radius: 12px;
   border: 0;
   font-size: 18px;
@@ -112,9 +111,6 @@ const FormInput = styled.input`
   width: 45rem;
 
   margin: 1rem 0;
-  ::placeholder {
-    color: ${(p) => p.theme.textPrimaryColor};
-  }
   @media only screen and (max-width: 800px) {
     width: 20rem;
   }
@@ -130,11 +126,6 @@ const FormTextArea = styled.textarea`
   padding: 4px 20px 0;
   width: 45rem;
   margin: 1rem 0;
-  color: ${(p) => p.theme.textPrimaryColor};
-
-  ::placeholder {
-    color: ${(p) => p.theme.textPrimaryColor};
-  }
 
   @media only screen and (max-width: 800px) {
     width: 20rem;
@@ -157,7 +148,7 @@ const StyledButton = styled.button`
   transition: 600ms;
 
   &:hover {
-    background-color: ${(p) => p.theme.textTertiaryColor};
+    background-color: rgba(65, 72, 169, 0.5);
   }
   @media only screen and (max-width: 800px) {
     width: 15rem;

@@ -7,7 +7,6 @@ const buttonStyles = css`
   &:hover {
     background-color: rgb(65, 72, 169);
     color: black;
-    border: 1px solid black;
   }
 `;
 
@@ -44,6 +43,7 @@ const getButtonStyles = (props) => {
 
 export const CustomButtonContainer = styled.button`
   min-width: 165px;
+  max-height: 50px;
   width: auto;
   letter-spacing: 1px;
   line-height: 50px;

@@ -64,6 +64,7 @@ export const FormInputTextArea = styled.textarea`
   border-radius: 4px;
   background-color: white;
   resize: vertical;
+  white-space: pre-wrap;
   &:focus {
     outline: none;
   }

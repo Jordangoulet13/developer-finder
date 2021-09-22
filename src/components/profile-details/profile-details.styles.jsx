@@ -34,3 +34,9 @@ export const FormContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+`;

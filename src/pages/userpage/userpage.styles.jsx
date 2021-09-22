@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import linkedin from "../../assets/linkedin.png";
 import github from "../../assets/Octicons-mark-github.svg";
+import profilePic from "../../assets/1200px-Breezeicons-actions-22-im-user.svg.png";
 
 export const UserContainer = styled.div`
   display: flex;
@@ -87,6 +88,9 @@ export const ContentContainer = styled.div`
   width: 80%;
   align-self: center;
   margin-bottom: 40px;
+  white-space: pre-wrap;
+  overflow-x: wrap;
+  padding: 0;
   ${(p) =>
     p.about
       ? `padding:20px; width:100%; text-indent :5em; background-color:white;`
@@ -110,7 +114,11 @@ export const UserLink = styled.a`
   background-size: cover;
   background-position: center;
   background-image: ${(p) =>
-    p.github ? `url(${github})` : `url(${linkedin})`};
+    p.github
+      ? `url(${github})`
+      : p.linkedin
+      ? `url(${linkedin})`
+      : `url(${profilePic}) `};
   width: 30px;
   height: 30px;
   opacity: 0.5;

@@ -70,6 +70,8 @@ class SignIn extends React.Component {
             </CustomButton>
           </ButtonsBarContainer>
         </form>
+        <span demo>Demo Account Email: demo@gmail.com</span>
+        <span demo>Demo Account Password: demo123</span>
       </SignInContainer>
     );
   }

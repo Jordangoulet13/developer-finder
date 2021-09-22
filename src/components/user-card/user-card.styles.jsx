@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import linkedin from "../../assets/linkedin.png";
 import github from "../../assets/Octicons-mark-github.svg";
+import profilePic from "../../assets/1200px-Breezeicons-actions-22-im-user.svg.png";
 
 const pulsate = keyframes`
   0% {
@@ -58,7 +59,11 @@ export const UserLink = styled.a`
   background-size: cover;
   background-position: center;
   background-image: ${(p) =>
-    p.github ? `url(${github})` : `url(${linkedin})`};
+    p.github
+      ? `url(${github})`
+      : p.linkedin
+      ? `url(${linkedin})`
+      : `url(${profilePic}) `};
   width: 20px;
   height: 20px;
   opacity: 0.5;

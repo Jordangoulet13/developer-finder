@@ -27,6 +27,7 @@ const UserPage = ({ user }) => {
     email,
     githubLink,
     linkedinLink,
+    portfolioLink,
     image,
     location,
     skills,
@@ -44,7 +45,16 @@ const UserPage = ({ user }) => {
             ""
           )}
           {linkedinLink ? (
-            <UserLink href={`https://${linkedinLink}`} target="_blank" />
+            <UserLink
+              linkedin
+              href={`https://${linkedinLink}`}
+              target="_blank"
+            />
+          ) : (
+            ""
+          )}
+          {portfolioLink ? (
+            <UserLink href={`https://${portfolioLink}`} target="_blank" />
           ) : (
             ""
           )}
@@ -67,7 +77,7 @@ const UserPage = ({ user }) => {
         {about ? (
           <>
             <Heading about>About: </Heading>
-            <ContentContainer about>{about}</ContentContainer>
+            <ContentContainer about>{`${about}`}</ContentContainer>
           </>
         ) : null}
         <Location email>Contact: {email}</Location>
