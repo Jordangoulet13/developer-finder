@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Contact from "../../components/contact/Contact";
 
 import { selectUser } from "../../redux/usersCollection/userCollection.selectors";
 import {
@@ -70,6 +71,7 @@ const UserPage = ({ user }) => {
           </>
         ) : null}
         <Location email>Contact: {email}</Location>
+        <Contact fullName={`${firstName} ${lastName}`} email={email} />
       </UserInfo>
     </UserContainer>
   );
