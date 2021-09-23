@@ -8,6 +8,7 @@ import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 
 import HomePage from "./pages/homepage/homepage.component";
+import ScrollToTop from "./components/scroll-to-top/scroll-to-top";
 import Header from "./components/header/header.component";
 import UsersPage from "./pages/userspage/userspage.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
@@ -55,28 +56,30 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              this.props.currentUser ? (
-                <Redirect to="/" />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/manageProfile"
-            render={() =>
-              this.props.currentUser ? <ManageProfile /> : <HomePage />
-            }
-          />
-          <Route path="/users" component={UsersPage} />
-        </Switch>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                this.props.currentUser ? (
+                  <Redirect to="/" />
+                ) : (
+                  <SignInAndSignUpPage />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/manageProfile"
+              render={() =>
+                this.props.currentUser ? <ManageProfile /> : <HomePage />
+              }
+            />
+            <Route path="/users" component={UsersPage} />
+          </Switch>
+        </ScrollToTop>
       </div>
     );
   }
