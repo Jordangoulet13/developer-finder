@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import placeholderImg from "../../assets/user.svg";
 
 const moveInTop = keyframes`     0% {
     opacity: 0;

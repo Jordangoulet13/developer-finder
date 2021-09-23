@@ -16,6 +16,9 @@ export const GroupContainer = styled.div`
     letter-spacing: 0.3em;
   }
   ${(props) => (props.isProfile ? "width: 45%; margin: 30px 10px;" : null)}
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 export const FormInputContainer = styled.input`
@@ -61,6 +64,7 @@ export const FormInputTextArea = styled.textarea`
   border-radius: 4px;
   background-color: white;
   resize: vertical;
+  white-space: pre-wrap;
   &:focus {
     outline: none;
   }

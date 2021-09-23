@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
-import { Link } from "react-router-dom";
 import linkedin from "../../assets/linkedin.png";
 import github from "../../assets/Octicons-mark-github.svg";
+import profilePic from "../../assets/1200px-Breezeicons-actions-22-im-user.svg.png";
 
 const pulsate = keyframes`
   0% {
@@ -30,6 +30,10 @@ export const UserCardContainer = styled.div`
     animation: ${pulsate} 1s;
     opacity: 0.8;
   }
+
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 export const PorfileImage = styled.div`
@@ -41,6 +45,10 @@ export const PorfileImage = styled.div`
   width: 8vw;
   height: 8vw;
   cursor: pointer;
+  @media (max-width: 800px) {
+    width: 20vw;
+    height: 20vw;
+  }
 `;
 
 export const LinksContainer = styled.div`
@@ -51,7 +59,11 @@ export const UserLink = styled.a`
   background-size: cover;
   background-position: center;
   background-image: ${(p) =>
-    p.github ? `url(${github})` : `url(${linkedin})`};
+    p.github
+      ? `url(${github})`
+      : p.linkedin
+      ? `url(${linkedin})`
+      : `url(${profilePic}) `};
   width: 20px;
   height: 20px;
   opacity: 0.5;
@@ -113,6 +125,11 @@ export const Details = styled.div`
   padding: 3px;
   font-size: 10px;
   overflow: hidden;
+
+  @media (max-width: 850px) {
+    font-size: 8px;
+    padding: 3px;
+  }
 `;
 
 export const DetailsHeadingContainer = styled.div`

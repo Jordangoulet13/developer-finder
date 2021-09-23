@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import backgroundImg from "../../assets/landing-header.jpg";
-import personImg from "../../assets/MrCutout.com - man-with-a-computer-walking-0003-medium.png";
 
 const moveInLeft = keyframes`    0% {
   opacity: 0;
@@ -14,20 +13,6 @@ const moveInLeft = keyframes`    0% {
 100% {
   opacity: 1;
   transform: translate(0);
-}`;
-
-const moveInRight = keyframes`     0% {
-opacity: 0;
-transform: translate(10rem);
-}
-
-80% {
-transform: translate(-1rem);
-}
-
-100% {
-opacity: 1;
-transform: translate(0);
 }`;
 
 const moveInTop = keyframes`     0% {
@@ -55,6 +40,10 @@ export const LandingHeadingContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 850px) {
+    height: 65vh;
+    clip-path: polygon(0 0, 100% 0, 100% 45vh, 0 100%);
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -62,7 +51,6 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   animation: ${moveInLeft} 1s ease-out;
-  padding-top: 10%;
   align-items: center;
 `;
 
@@ -72,6 +60,20 @@ export const InfoHeading = styled.h1`
   font-weight: 400;
   position: relative;
   color: white;
+  margin-bottom: 100px;
+  @media (max-width: 850px) {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 550px) {
+    font-size: 2rem;
+  }
+  @media (max-width: 350px) {
+    font-size: 1.5rem;
+    margin-bottom: 7rem;
+  }
 `;
 export const InfoSub = styled.h2`
   display: block;
@@ -81,7 +83,17 @@ export const InfoSub = styled.h2`
   position: relative;
   color: white;
   position: relative;
-  top: -50px;
+  @media (max-width: 850px) {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+  @media (max-width: 550px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 350px) {
+    display: none;
+  }
 `;
 
 export const CategoryBanner = styled.p`
@@ -104,13 +116,20 @@ export const CollectionsOverviewHeadingContainer = styled.div`
   flex-direction: row-reverse;
   position: absolute;
   bottom: 0;
-
-  /* top: -93px; */
 `;
 
 export const CollectionsOverviewHeading = styled.h1`
   display: inline-block;
   margin-right: 20px;
+  @media (max-width: 850px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 550px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 350px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Container = styled.div`

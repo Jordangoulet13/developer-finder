@@ -7,7 +7,6 @@ const buttonStyles = css`
   &:hover {
     background-color: rgb(65, 72, 169);
     color: black;
-    border: 1px solid black;
   }
 `;
 
@@ -44,11 +43,10 @@ const getButtonStyles = (props) => {
 
 export const CustomButtonContainer = styled.button`
   min-width: 165px;
+  max-height: 50px;
   width: auto;
-  height: 50px;
   letter-spacing: 1px;
   line-height: 50px;
-  padding: 0 35px 0 35px;
   margin: 5px;
   font-size: 15px;
   text-transform: uppercase;
@@ -56,6 +54,9 @@ export const CustomButtonContainer = styled.button`
   display: flex;
   justify-content: center;
   ${getButtonStyles}
+  @media (max-width:850px) {
+    font-size: 10px;
+  }
 `;
 
 const isRounded = css`

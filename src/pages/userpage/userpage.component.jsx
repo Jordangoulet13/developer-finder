@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Contact from "../../components/contact/Contact";
 
 import { selectUser } from "../../redux/usersCollection/userCollection.selectors";
 import {
@@ -13,34 +14,20 @@ import {
   Location,
   HeadingItem,
   ContentItem,
+  LinksContainer,
+  UserLink,
 } from "./userpage.styles";
-
-/*
-about: ""
-createdAt: t {seconds: 1621307399, nanoseconds: 723000000}
-displayName: "llll"
-email: "lll@gmail.com"
-firstName: "lll"
-githubLink: ""
-id: "j6ez10udnvvs9rg0tahddvad2yk1"
-image: "data:image/jpeg;base64,/9j/4Q9rRXhpZgAATU0AKgAAAA
-lastName: "lll"
-linkedinLink: ""
-location: ""
-portfolioLink: ""
-routeName: "j6ez10udnvvs9rg0tahddvad2yk1"
-skills: ""
-title: "" */
 
 const UserPage = ({ user }) => {
   console.log(user);
   const {
     firstName,
     lastName,
-    createdAt,
+
     email,
     githubLink,
     linkedinLink,
+    portfolioLink,
     image,
     location,
     skills,
@@ -51,6 +38,27 @@ const UserPage = ({ user }) => {
     <UserContainer>
       <SideBar>
         <UserImage image={image} />
+        <LinksContainer>
+          {githubLink ? (
+            <UserLink github href={`https://${githubLink}`} target="_blank" />
+          ) : (
+            ""
+          )}
+          {linkedinLink ? (
+            <UserLink
+              linkedin
+              href={`https://${linkedinLink}`}
+              target="_blank"
+            />
+          ) : (
+            ""
+          )}
+          {portfolioLink ? (
+            <UserLink href={`https://${portfolioLink}`} target="_blank" />
+          ) : (
+            ""
+          )}
+        </LinksContainer>
       </SideBar>
       <UserInfo>
         <Heading name>
@@ -66,19 +74,14 @@ const UserPage = ({ user }) => {
         ) : (
           `${firstName} doesn't have any skills to share.`
         )}
-        {/* {skills ? (
-          <>
-            <Heading about>Skills: </Heading>
-            <ContentContainer about>{skills}</ContentContainer>
-          </>
-        ) : null} */}
         {about ? (
           <>
             <Heading about>About: </Heading>
-            <ContentContainer about>{about}</ContentContainer>
+            <ContentContainer about>{`${about}`}</ContentContainer>
           </>
         ) : null}
         <Location email>Contact: {email}</Location>
+        <Contact fullName={`${firstName} ${lastName}`} email={email} />
       </UserInfo>
     </UserContainer>
   );

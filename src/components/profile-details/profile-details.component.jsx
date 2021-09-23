@@ -6,18 +6,20 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
-import { writeUserData } from "../../firebase/firebase.utils";
+import { writeUserData, deleteUserData } from "../../firebase/firebase.utils";
 
 import {
   FormContainer,
   ProfileContainer,
   ProfileTitle,
+  Header,
 } from "./profile-details.styles";
 
 class ProfileDetails extends React.Component {
   constructor() {
     super();
     this.state = {
+      id: "",
       firstName: "",
       lastName: "",
       location: "",
@@ -31,6 +33,7 @@ class ProfileDetails extends React.Component {
   }
   componentDidMount() {
     this.setState({
+      id: this.props.currentUser.id,
       firstName: this.props.currentUser.firstName,
       lastName: this.props.currentUser.lastName,
       location: this.props.currentUser.location,
@@ -77,6 +80,12 @@ class ProfileDetails extends React.Component {
     }
   };
 
+  handleDelete = (id) => {
+    console.log(id);
+    deleteUserData(id);
+    window.alert("Account has been deleted successfully");
+  };
+
   handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -86,6 +95,7 @@ class ProfileDetails extends React.Component {
 
   render() {
     const {
+      id,
       firstName,
       lastName,
       location,
@@ -99,10 +109,13 @@ class ProfileDetails extends React.Component {
 
     return (
       <ProfileContainer>
-        {console.log(">>>", this.props.currentUser)}
-        <ProfileTitle>Profile Details</ProfileTitle>
+        <Header>
+          <ProfileTitle>Profile Details</ProfileTitle>
+          <CustomButton onClick={() => this.handleDelete(id)}>
+            Delete Account
+          </CustomButton>
+        </Header>
         <span>Enter your infomation below</span>
-
         <form onSubmit={this.handleSubmit}>
           <FormContainer>
             <FormInput
@@ -130,7 +143,7 @@ class ProfileDetails extends React.Component {
               name="location"
               value={location}
               onChange={this.handleChange}
-              label="Location"
+              label="City"
             />
             <FormInput
               isProfile
@@ -138,7 +151,7 @@ class ProfileDetails extends React.Component {
               name="title"
               value={title}
               onChange={this.handleChange}
-              label="Title i.e Front-end developer"
+              label="Current Role i.e Front-end developer"
             />
 
             <FormInput

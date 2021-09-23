@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import backgroundImg from "../../assets/vancouver-software-development-apps.jpg";
-import FormInput from "../form-input/form-input.component";
 
 export const ProfileContainer = styled.div`
   display: flex;
@@ -34,4 +33,10 @@ export const FormContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
 `;

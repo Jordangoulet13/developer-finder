@@ -85,6 +85,11 @@ export const writeUserData = (
   });
 };
 
+export const deleteUserData = async (userAuth) => {
+  const userRef = await firestore.doc(`users/${userAuth}`);
+  userRef.delete();
+};
+
 export const writeUserImage = (userAuth, image) => {
   if (userAuth) {
     const userRef = firestore.doc(`users/${userAuth}`);

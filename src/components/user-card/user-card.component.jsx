@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   UserCardContainer,
   PorfileImage,
@@ -31,9 +31,8 @@ const UserCard = ({ ...otherCollectionProps }) => {
     githubLink,
     linkedinLink,
   } = otherCollectionProps;
-  const locationUrl = useLocation();
+
   const history = useHistory();
-  const match = useRouteMatch();
 
   return (
     <UserCardContainer>
@@ -49,7 +48,16 @@ const UserCard = ({ ...otherCollectionProps }) => {
             ""
           )}
           {linkedinLink ? (
-            <UserLink href={`https://${linkedinLink}`} target="_blank" />
+            <UserLink
+              linkedin
+              href={`https://${linkedinLink}`}
+              target="_blank"
+            />
+          ) : (
+            ""
+          )}
+          {portfolioLink ? (
+            <UserLink href={`https://${portfolioLink}`} target="_blank" />
           ) : (
             ""
           )}
