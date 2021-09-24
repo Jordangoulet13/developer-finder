@@ -4,28 +4,35 @@ import emailjs from "emailjs-com";
 
 const Contact = ({ fullName, email, ...props }) => {
   const [message, setMessage] = useState("");
+  const [count, setCount] = useState(0);
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        form.current,
-        process.env.REACT_APP_USER_ID
-      )
-      .then(
-        (result) => {
-          window.alert("Thank you! I will get back to you shortly.");
-          console.log(result);
-        },
-        (error) => {
-          window.alert("Sorry, something went wrong. Please try again later.");
-          console.log(error);
-          console.log(process.env);
-        }
-      );
+    if (count < 1) {
+      emailjs
+        .sendForm(
+          process.env.REACT_APP_SERVICE_ID,
+          process.env.REACT_APP_TEMPLATE_ID,
+          form.current,
+          process.env.REACT_APP_USER_ID
+        )
+        .then(
+          (result) => {
+            window.alert("Thank you! I will get back to you shortly.");
+            console.log(result);
+          },
+          (error) => {
+            window.alert(
+              "Sorry, something went wrong. Please try again later."
+            );
+            console.log(error);
+            console.log(process.env);
+          }
+        );
+      setCount(count + 1);
+    } else {
+      window.alert("You just sent them an email. Give them time to respond");
+    }
   };
 
   return (
